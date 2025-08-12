@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classmate I Miss You</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: pink;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+    h2 {
+        margin-bottom: 1.5em;
+    }
+    .btn-container {
+        position: relative;
+        display: flex;
+        gap: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    #yesBtn {
+        background-color: lightgreen;
+        position: relative;
+        z-index: 1;
+    }
+    #noBtn {
+        background-color: lightcoral;
+        position: absolute;
+        left: calc(100% + 20px); /* start to the right of Yes */
+    }
+</style>
+</head>
+<body>
+
+<h1>Classmate I miss you</h1>
+<h2>Do you miss me too?</h2>
+
+<div class="btn-container">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+</div>
+
+<audio id="Cean Jr. - YK" src="c:\Users\cager\OneDrive\Documents\ImissYou.java\Cean Jr. - YK (Lyrics).mp3"></audio>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const music = document.getElementById("Cean Jr. - YK");
+
+    // Move No button away when hovered
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.clientHeight);
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+        noBtn.style.position = "fixed"; // keep it free to move anywhere
+    });
+
+    // Play music when Yes button is clicked
+    yesBtn.addEventListener("click", () => {
+        music.play();
+        alert("Yay! I miss you too ❤️");
+    });
+</script>
+
+</body>
+</html>
